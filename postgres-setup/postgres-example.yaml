@@ -1,0 +1,10 @@
+services:
+  db:
+    build: db
+    env_file:
+      - .env
+    container_name: example_container
+  adminer:
+    image: docker.io/adminer
+    ports:
+      - 8080:8080
