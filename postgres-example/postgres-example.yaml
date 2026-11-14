@@ -4,6 +4,11 @@ services:
     env_file:
       - .env
     container_name: example_container
+    healthcheck:
+      test: pg_isready -U $POSTGRES_USER
+      interval: 5s
+      timeout: 5s
+      retries: 5
   adminer:
     image: docker.io/adminer
     ports:
